@@ -560,20 +560,6 @@ main() {
   migrate_git_repo_to_reftable "${DOTFILES_DIR}"
   step_end
 
-  if is_non_zero_string "${KEYBASE_USERNAME}"; then
-    section_header "$(yellow 'Cloning') '$(cyan 'keybase')' repos"
-    # Login into Keybase
-    step_start
-    _ensure_keybase_logged_in || return 1
-    step_end
-
-    _clone_home_repo
-
-    _clone_profiles_repo
-  else
-    info "Skipping cloning of any keybase repo since '$(yellow 'KEYBASE_USERNAME')' has not been set"
-  fi
-
   if is_file "${SSH_CONFIGS_DIR}/known_hosts.old"; then rm -f "${SSH_CONFIGS_DIR}/known_hosts.old"; fi
 
   # Restore the preferences from the older machine into the new one.

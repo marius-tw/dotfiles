@@ -67,7 +67,7 @@ brew 'syncthing'
 brew 'tlrc'
 
 cask 'dbeaver-community'
-cask 'firefox@nightly' #, greedy: true
+cask 'firefox' #, greedy: true
 cask 'google-chrome'
 cask 'keycastr', postinstall: "\"#{setup_login_items_script}\" -a 'Keycastr'"
 cask 'keyclu', postinstall: "\"#{setup_login_items_script}\" -a 'KeyClu'" if is_arm
